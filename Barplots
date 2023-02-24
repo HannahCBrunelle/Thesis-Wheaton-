@@ -1,0 +1,68 @@
+##### Barplots - SERC Striped Bass Dissection Data#####
+#Author: Hannah C Brunelle
+#Advisor: Dr.Katrina Lohan and Dr. Andrew Davianck 
+#Date: Nov. 7,2022 - Feb. 24, 2023
+
+# Simple Bar Plot
+
+Q <- ggplot(DissectionsK, aes(x = Tributary_Main, colour=Number_Of_Parasite_Species, fill= Number_Of_Parasite_Species)) +
+  geom_bar()
+ 
+Q
+
+Qp <- Q + ggtitle("YOY Fish Compared with Level of Parasite Intensity with Salinity") +
+  xlab("Parasite Intensity") + ylab("Number of Fish") 
+
+Qp
+
+#Barplot showing age classes that are parasitized 
+Q <- ggplot(Key, aes(x = salinity_range, colour=Parasitized, fill=Parasitized)) +
+  geom_bar()
+
+Q <- Q + ggtitle("Salinity of Multiple Chesapeake Bay Tributaries and Parasitization of Striped Bass") +
+  xlab("Salinity") + ylab("Number of Fish")
+
+Q
+
+
+#Barplot showing Tributaries  that are parasitized 
+H <- ggplot(DissectionsK, aes(x = Level_Of_Parasitization, colour=Tributary_Main, fill= Tributary_Main)) +
+  geom_bar()
+
+H + ggtitle("Striped Bass Collected from Chesapeake Bay") +
+  xlab("Category of Parasitization") + ylab("Number of Fish")
+
+H
+
+#Barplot showing salinity that are parasitized 
+O <- ggplot(Key, aes(x = salinity_range, colour= Tributary_Main, fill= Parasitized)) +
+  geom_bar()
+
+O + ggtitle("Salinity of Chesapeake Bay Tributaries") +
+  xlab("Salinity") + ylab("Number of Fish")
+
+#Barplot showing diversity that are parasitized 
+w <- ggplot(Key, aes(x = Age_Class, colour= salinity_range, fill= salinity_range)) +
+  geom_bar()
+
+w + ggtitle("Striped Bass Collected from Chesapeake Bay") +
+  xlab("Age Class") + ylab("Number of Fish")
+
+#Barplot showing K and species diveristy 
+L <- ggplot(Key, aes(x = salinity_range, fill= binK)) +
+  geom_bar()
+
+L + ggtitle("Tributary Salinity compared to Condition Factor of Striped Bass") +
+  xlab("Salinity Range") + ylab("Number of Fish")+
+  guides(fill = guide_legend(title = "Condition Factor"))
+
+#Barplot showing YOY with Parasite Richness and Salinity
+k <- ggplot(YOY_salinity, aes(x = salinity_range, fill=Number_Of_Parasite_Species)) +
+  geom_bar()
+
+k
+
+k <- k + ggtitle("YOY Striped Bass showing Parasite Richness and Salinity Range") +
+  xlab("Salinity Range") + ylab("Number of Fish") + guides(fill() = guide_legend (title = "Number of Parasite Taxa"))
+
+k
