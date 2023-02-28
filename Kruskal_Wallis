@@ -8,52 +8,32 @@
 
 #Parazatization Intensity Analysis 
 kruskal.test(Parasitized$Level_Of_Parasitization, Parasitized$Fulton.s.K)#numerical, grouping
-#Kruskal-Wallis chi-squared = 347, df = 341, p-value = 0.3998
 kruskal.test(DissectionsK$Parasitized, DissectionsK$Fulton.s.K) #numerical, grouping
-#Kruskal-Wallis chi-squared = 441.12, df = 438, p-value = 0.4492
 
 #Parasite Richness Analysis 
 kruskal.test(Parasitized$Number_Of_Parasite_Species, Parasitized$Fulton.s.K) 
-#Kruskal-Wallis chi-squared = 345.39, df = 341, p-value = 0.4235
 kruskal.test(DissectionsK$Parasitized, DissectionsK$Fulton.s.K) 
-#Kruskal-Wallis chi-squared = 159.43, df = 163, p-value = 0.5645
 
 #Age Class Analysis 
 kruskal.test(DissectionsK$Age_Class, DissectionsK$Fulton.s.K) 
-#Kruskal-Wallis chi-squared = 445, df = 438, p-value = 0.3983
-#YOY
+###YOY
 kruskal.test(YOY_salinity$Parasitized, YOY_salinity$Fulton.s.K)
-#Kruskal-Wallis chi-squared = 353.66, df = 350, p-value = 0.4353
 kruskal.test(YOYAnalysis$Number_Of_Parasite_Species, YOYAnalysis$Fulton.s.K) 
-#Kruskal-Wallis chi-squared = 257.14, df = 253, p-value = 0.4158
 kruskal.test(YOYAnalysis$Level_Of_Parasitization, YOYAnalysis$Fulton.s.K)
-#Kruskal-Wallis chi-squared = 259, df = 253, p-value = 0.3843
-#Juvenile
+###Juvenile
 kruskal.test(Juv$Parasitized, Juv$Fulton.s.K)
-#Kruskal-Wallis chi-squared = NaN, df = 67, p-value = NA
 kruskal.test(JuvAnalysis$Number_Of_Parasite_Species, JuvAnalysis$Fulton.s.K) 
-#Kruskal-Wallis chi-squared = 67, df = 67, p-value = 0.477
 kruskal.test(JuvAnalysis$Level_Of_Parasitization, JuvAnalysis$Fulton.s.K)
-#Kruskal-Wallis chi-squared = 67, df = 67, p-value = 0.477
-#Adult
+###Adult
 kruskal.test(Ad$Parasitized, Ad$Fulton.s.K)
-#Kruskal-Wallis chi-squared = NaN, df = 19, p-value = NA
 kruskal.test(AAnalysis$Number_Of_Parasite_Species, AAnalysis$Fulton.s.K) 
-#Kruskal-Wallis chi-squared = 19, df = 19, p-value = 0.4568
 kruskal.test(AAnalysis$Level_Of_Parasitization, AAnalysis$Fulton.s.K)
-#Kruskal-Wallis chi-squared = 19, df = 19, p-value = 0.4568
 
 #Location Analysis 
 kruskal.test(DissectionsK$Tributary_Main, DissectionsK$Fulton.s.K) 
-#Kruskal-Wallis chi-squared = 439.79, df = 438, p-value = 0.467
-kruskal.test(DissectionsK$Site, DissectionsK$Fulton.s.K) 
-#Kruskal-Wallis chi-squared = 439.84, df = 438, p-value = 0.4663
-#Upper Bay
-kruskal.test(UP$Parasitized, UP$Fulton.s.K) 
-#Kruskal-Wallis chi-squared = 439.79, df = 438, p-value = 0.467
-kruskal.test(UPPK$, DissectionsK$Fulton.s.K) 
-#Kruskal-Wallis chi-squared = 439.84, df = 438, p-value = 0.4663
 
-#Salinity Analysis 
-kruskal.test(Key$salinity_range, Key$Fulton.s.K) 
+#Salinity Analysis
+###All Fish
+kruskal.test(Key$salinity_range, Key$Fulton.s.K)
+###YOY fish
 kruskal.test(YOY_salinity$salinity_range, YOY_salinity$Fulton.s.K) 
