@@ -3,66 +3,119 @@
 #Advisor: Dr.Katrina Lohan and Dr. Andrew Davianck 
 #Date: Nov. 7,2022 - Feb. 24, 2023
 
-# Simple Bar Plot
-
-Q <- ggplot(DissectionsK, aes(x = Tributary_Main, colour=Number_Of_Parasite_Species, fill= Number_Of_Parasite_Species)) +
+#####Parasite Intensity#####
+QA <- ggplot(Key, aes(x = Level_Of_Parasitization, colour=Level_Of_Parasitization, fill= Level_Of_Parasitization)) +
   geom_bar()
- 
-Q
-
-Qp <- Q + ggtitle("YOY Fish Compared with Level of Parasite Intensity with Salinity") +
+QA
+QB <- QA + ggtitle("Parasite Intensity of Striped Bass from Chesapeake Bay") +
   xlab("Parasite Intensity") + ylab("Number of Fish") 
-
-Qp
-
-#Barplot showing age classes that are parasitized 
-Q <- ggplot(Key, aes(x = salinity_range, colour=Parasitized, fill=Parasitized)) +
+QB
+#Parasite Intensity and K
+QC <- ggplot(Key, aes(x = Level_Of_Parasitization, colour=binK, fill= binK)) +
   geom_bar()
+QC
+QD <- QC + ggtitle("Parasite Intensity and Condition Factor of Striped Bass from Chesapeake Bay") +
+  xlab("Parasite Intensity") + ylab("Number of Fish") 
+QD
 
-Q <- Q + ggtitle("Salinity of Multiple Chesapeake Bay Tributaries and Parasitization of Striped Bass") +
-  xlab("Salinity") + ylab("Number of Fish")
-
-Q
-
-
-#Barplot showing Tributaries  that are parasitized 
-H <- ggplot(DissectionsK, aes(x = Level_Of_Parasitization, colour=Tributary_Main, fill= Tributary_Main)) +
+######Parasite Richness#####
+QE <- ggplot(Key, aes(x = Number_Of_Parasite_Species, colour= Number_Of_Parasite_Species, fill= Number_Of_Parasite_Species)) +
   geom_bar()
+QE
+QF <- QE + ggtitle("Parasite Richness of Striped Bass from Chesapeake Bay") +
+  xlab("Parasite Richness") + ylab("Number of Fish") 
+QF
+#Parasite Richness and K
+QG <- ggplot(Key, aes(x = Number_Of_Parasite_Species , colour=binK, fill= binK)) +
+  geom_bar()
+QG
+QH <- QG + ggtitle("Parasite Richness and Condition Factor of Striped Bass from Chesapeake Bay") +
+  xlab("Parasite Intensity") + ylab("Number of Fish") 
+QH
 
-H + ggtitle("Striped Bass Collected from Chesapeake Bay") +
-  xlab("Category of Parasitization") + ylab("Number of Fish")
+#####Age Class#####
+ggplot(Key, aes(x = Age_Class, colour=Age_Class, fill= Age_Class)) +
+  geom_bar()
+#Parasite Intensity and Age Class
+A <- ggplot(Key, aes(x =Level_Of_Parasitization , colour=Age_Class, fill= Age_Class)) +
+  geom_bar()
+A
+AB <- A + ggtitle("Parasite Intensity across Age Class of Striped Bass from Chesapeake Bay") +
+  xlab("Parasite Intensity") + ylab("Number of Fish") 
+AB
 
+#Parasite Richness and Age Class
+AC <- ggplot(Key, aes(x = Number_Of_Parasite_Species, colour= Age_Class, fill= Age_Class)) +
+  geom_bar()
+AC
+AD <- AC + ggtitle("Parasite Richness across Age Class of Striped Bass from Chesapeake Bay") +
+  xlab("Parasite Richness") + ylab("Number of Fish") 
+AD
+
+#####Tributary#####
+ggplot(Key, aes(x = Tributary_Main, colour=Tributary_Main, fill= Tributary_Main)) +
+  geom_bar()
+#Parasite Intensity and Tributary 
+B <- ggplot(Key, aes(x = Level_Of_Parasitization, colour=Tributary_Main, fill= Tributary_Main)) +
+  geom_bar()
+B
+BC <- B + ggtitle("Parasite Intensity of Striped Bass across Tributaries in the Chesapeake Bay") +
+  xlab("Parasite Intensity") + ylab("Number of Fish") 
+BC
+
+#Parasite Richness and Tributary
+BD <- ggplot(Key, aes(x = Number_Of_Parasite_Species, colour= Tributary_Main, fill= Tributary_Main)) +
+  geom_bar()
+BD
+BE <- BD + ggtitle("Parasite Richness of Striped Bass across Tributaries in the Chesapeake Bay") +
+  xlab("Parasite Richness") + ylab("Number of Fish") 
+BE
+
+#####Salinity#####
+ggplot(Key, aes(x = salinity_range, colour=salinity_range, fill= salinity_range)) +
+  geom_bar()
+#Parasite Intensity and Salinity Range 
+C <- ggplot(Key, aes(x = Level_Of_Parasitization, colour=salinity_range, fill= salinity_range)) +
+  geom_bar()
+C
+CD <- C + ggtitle("Parasite Intensity of Striped Bass across Salinity Ranges in the Chesapeake Bay") +
+  xlab("Parasite Intensity") + ylab("Number of Fish") 
+CD
+#Another way to look at salinity 
+D <- ggplot(Key, aes(x = salinity_range, colour=Level_Of_Parasitization, fill= Level_Of_Parasitization)) +
+  geom_bar()
+D
+DE <- D + ggtitle("Parasite Intensity of Striped Bass across Salinity Ranges in the Chesapeake Bay") +
+  xlab("Parasite Intensity") + ylab("Number of Fish") 
+DE
+#Parasite Richness and Tributary
+E <- ggplot(Key, aes(x = Number_Of_Parasite_Species, colour= salinity_range, fill= salinity_range)) +
+  geom_bar()
+E
+ED <- E + ggtitle("Parasite Richness of Striped Bass across Salinity Ranges in the Chesapeake Bay") +
+  xlab("Parasite Richness") + ylab("Number of Fish") 
+ED
+
+#####YOY Salinity#####
+ggplot(YOY_salinity, aes(x = salinity_range, colour=salinity_range, fill= salinity_range)) +
+  geom_bar()
+#Parasite Intensity and Salinity Range 
+H <- ggplot(YOY_salinity, aes(x = Level_Of_Parasitization, colour=salinity_range, fill= salinity_range)) +
+  geom_bar()
 H
-
-#Barplot showing salinity that are parasitized 
-O <- ggplot(Key, aes(x = salinity_range, colour= Tributary_Main, fill= Parasitized)) +
+HB <- H + ggtitle("Parasite Intensity of YOY Striped Bass across Salinity Ranges in the Chesapeake Bay") +
+  xlab("Parasite Intensity") + ylab("Number of YOY Fish") 
+HB
+#Another way to look at salinity 
+HC <- ggplot(YOY_salinity, aes(x = salinity_range, colour=Level_Of_Parasitization, fill= Level_Of_Parasitization)) +
   geom_bar()
-
-O + ggtitle("Salinity of Chesapeake Bay Tributaries") +
-  xlab("Salinity") + ylab("Number of Fish")
-
-#Barplot showing diversity that are parasitized 
-w <- ggplot(Key, aes(x = Age_Class, colour= salinity_range, fill= salinity_range)) +
+HC
+HD <- HC + ggtitle("Parasite Intensity of YOY Striped Bass across Salinity Ranges in the Chesapeake Bay") +
+  xlab("Parasite Intensity") + ylab("Number of Fish") 
+HD
+#Parasite Richness and Tributary
+HE <- ggplot(YOY_salinity, aes(x = Number_Of_Parasite_Species, colour= salinity_range, fill= salinity_range)) +
   geom_bar()
-
-w + ggtitle("Striped Bass Collected from Chesapeake Bay") +
-  xlab("Age Class") + ylab("Number of Fish")
-
-#Barplot showing K and species diveristy 
-L <- ggplot(Key, aes(x = salinity_range, fill= binK)) +
-  geom_bar()
-
-L + ggtitle("Tributary Salinity compared to Condition Factor of Striped Bass") +
-  xlab("Salinity Range") + ylab("Number of Fish")+
-  guides(fill = guide_legend(title = "Condition Factor"))
-
-#Barplot showing YOY with Parasite Richness and Salinity
-k <- ggplot(YOY_salinity, aes(x = salinity_range, fill=Number_Of_Parasite_Species)) +
-  geom_bar()
-
-k
-
-k <- k + ggtitle("YOY Striped Bass showing Parasite Richness and Salinity Range") +
-  xlab("Salinity Range") + ylab("Number of Fish") + guides(fill() = guide_legend (title = "Number of Parasite Taxa"))
-
-k
+HE
+HF <- HE + ggtitle("Parasite Richness of YOY Striped Bass across Salinity Ranges in the Chesapeake Bay") +
+  xlab("Parasite Richness") + ylab("Number of YOY Fish") 
