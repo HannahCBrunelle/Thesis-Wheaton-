@@ -4,15 +4,16 @@
 #Date: December 15,2022 - Feb. 24, 2023
 
 #Kruskal-Wallis: nonparametric approach to the one-way ANOVA. 
-#Wilcoxon rank-sum test is used to compare two independent samples, 
 
 #Parazatization Intensity Analysis 
-kruskal.test(Parasitized$Level_Of_Parasitization, Parasitized$Fulton.s.K)#numerical, grouping
-kruskal.test(DissectionsK$Parasitized, DissectionsK$Fulton.s.K) #numerical, grouping
+kruskal.test(Key$Level_Of_Parasitization, Key$Fulton.s.K)#numerical, grouping
+ktest_level <- kruskal.test(Key$Level_Of_Parasitization, Key$Fulton.s.K)
+dunnTest(Fulton.s.K~Level_Of_Parasitization,data=Key)
 
 #Parasite Richness Analysis 
-kruskal.test(Parasitized$Number_Of_Parasite_Species, Parasitized$Fulton.s.K) 
-kruskal.test(DissectionsK$Parasitized, DissectionsK$Fulton.s.K) 
+kruskal.test(Key$Number_Of_Parasite_Species, Key$Fulton.s.K)
+ktest_rich <- kruskal.test(Key$Number_Of_Parasite_Species, Key$Fulton.s.K)
+dunnTest(Fulton.s.K~Number_Of_Parasite_Species,data=Key)
 
 #Age Class Analysis 
 kruskal.test(DissectionsK$Age_Class, DissectionsK$Fulton.s.K) 
