@@ -95,6 +95,13 @@ E
 ED <- E + ggtitle("Parasite Richness of Striped Bass across Salinity Ranges in the Chesapeake Bay") +
   xlab("Parasite Richness") + ylab("Number of Fish") 
 ED
+#Salinity and Age Class
+AGESAL <- ggplot(Key, aes(x = salinity_range, colour= Age_Class, fill= Age_Class)) +
+  geom_bar()
+AGESAL
+Age <- AGESAL + ggtitle("Ages of Striped Bass across Salinity Ranges in the Chesapeake Bay") +
+  xlab("Salinity Range") + ylab("Number of Fish") 
+Age
 
 #####YOY Salinity#####
 ggplot(YOY_salinity, aes(x = salinity_range, colour=salinity_range, fill= salinity_range)) +
