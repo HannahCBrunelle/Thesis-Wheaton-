@@ -1,0 +1,46 @@
+#####Statistical Analysis for SERC Striped Bass Dissection Data#####
+#Author: Hannah C Brunelle
+#Advisor: Dr.Katrina Lohan and Dr. Andrew Davinack 
+#Date: December 15,2022 - April 2023
+
+#http://www.sthda.com/english/wiki/correlation-test-between-two-variables-in-r
+
+######Statistical test for number of parasite intensity found within each fish and the health condition of the fish####
+#Normality Test using historgram 
+##Normality Test
+hist(Key$K)
+hist(Key$numberofparasites)
+
+#Scatterplot with a P and R value 
+library("ggpubr")
+ggscatter(Key, x = "numberofparasites", y = "K", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "pearson",
+          xlab = "Level of Parasite Intensity", ylab = "Fulton's Condition Factor")
+
+#Correlation Test
+CorIntensity <- cor.test(Key$numberofparasites, Key$K, 
+                    method = "pearson")
+CorIntensity
+
+CorIntensity$p.value
+
+######Statistical test for number of parasite taxa found within each fish and the health condition of the fish####
+#Normality Test using historgram 
+##Normality Test
+hist(Key$K)
+hist(Key$Number_Of_Parasite_Taxa)
+
+#Scatterplot with a P and R value 
+library("ggpubr")
+ggscatter(Key, x = "Number_Of_Parasite_Taxa", y = "K", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "pearson",
+          xlab = "Number of Parasite Taxa", ylab = "Fulton's Condition Factor")
+
+#Correlation Test
+CorTaxa <- cor.test(Key$Number_Of_Parasite_Taxa, Key$K, 
+                method = "pearson")
+CorTaxa
+
+CorTaxa$p.value
